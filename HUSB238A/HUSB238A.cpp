@@ -1,28 +1,30 @@
 #include "HUSB238A.hpp"
 
 namespace HUSB238A {
-    Chip::Chip(const uint8_t addr): _i2c(addr) { }
+    Chip::Chip(const uint8_t addr): _i2c(new I2C(addr)) { }
+
+    Chip::Chip(I2C* i2c): _i2c(i2c) { }
 
     void Chip::wait_until_reached(void(*callback)(int retry)) const {
-        for (int i = 1; !_i2c.can_ack(); i++) {
+        for (int i = 1; !_i2c->can_ack(); i++) {
             callback(i);
         }
     }
 
     Register* Chip::read_register(RegisterAddress addr) const {
-        const int read_result = _i2c.read_register(addr);
+        const int read_result = _i2c->read_register(static_cast<uint8_t>(addr));
         if (read_result == -1) {
             return nullptr;
         }
-        return new Register(read_result);
+        return new Register(read_result, _i2c, addr);
     }
 
     int Chip::write_register(const RegisterAddress addr, const Register value) const {
-        return _i2c.write_register(addr, value.get_val());
+        return _i2c->write_register(static_cast<uint8_t>(addr), value.get_val());
     }
 
     I2C Chip::get_i2c() const {
-        return _i2c;
+        return *_i2c;
     }
 
 }

@@ -20,6 +20,8 @@ public:
      */
     explicit Chip(uint8_t addr = HUSB238A_I2CADDR_DEFAULT);
 
+    explicit Chip(I2C* i2c);
+
     /**
     * @brief Blocks and keep trying until the HUSB238A can be reached
     * When the HUSB238A is not reached, it calls `callback(retry)`,
@@ -32,11 +34,9 @@ public:
     Register* read_register(RegisterAddress addr) const;
     int write_register(RegisterAddress addr, Register value) const;
 
-
-
     I2C get_i2c() const;
 private:
-    I2C _i2c;  // I2C device
+    I2C* _i2c;  // I2C device
 };
 
 }
