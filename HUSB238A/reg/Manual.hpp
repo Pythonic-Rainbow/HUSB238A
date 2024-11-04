@@ -5,7 +5,7 @@ namespace husb238a {
 
 class Manual : public WRegister {
 public:
-    explicit Manual() = default;
+    explicit Manual(const uint8_t value) : WRegister(value) {}
 
     RegisterAddress get_addr() override {
         return MANUAL;

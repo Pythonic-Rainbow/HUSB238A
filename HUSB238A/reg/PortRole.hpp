@@ -7,7 +7,7 @@
 namespace husb238a {
     class PortRole : public Register {
     public:
-        explicit PortRole() = default;
+        explicit PortRole(const uint8_t value) : Register(value) {}
 
         RegisterAddress get_addr() override {
             return PORTROLE;

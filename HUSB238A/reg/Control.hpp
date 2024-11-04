@@ -6,7 +6,7 @@
 namespace husb238a {
     class Control : public WRegister {
     public:
-        explicit Control() = default;
+        explicit Control(const uint8_t value) : WRegister(value) {}
 
         RegisterAddress get_addr() override {
             return CONTROL;

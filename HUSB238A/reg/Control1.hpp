@@ -5,7 +5,7 @@ namespace husb238a {
 
 class Control1 : public WRegister {
 public:
-    explicit Control1() = default;
+    explicit Control1(const uint8_t value) : WRegister(value) {}
 
     RegisterAddress get_addr() override {
         return CONTROL1;
@@ -40,7 +40,7 @@ public:
     }
 
     void set_tccdeb(uint8_t value) {
-        _val |= value & regdetail::TCCDEB;
+        set_bits_n(regdetail::TCCDEB, value);
     }
 };
 

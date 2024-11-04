@@ -15,9 +15,13 @@ public:
         return _val & mask;
     }
 
+    uint8_t get_bits(const uint8_t mask) const {
+        return husb238a::get_bits(_val, mask);
+    }
+
 protected:
-    explicit Register() { }
-    uint8_t _val{}; // Value of the register. Note: This is not guaranteed to be up to date!
+    explicit Register(const uint8_t value) : _val(value) { }
+    uint8_t _val; // Value of the register. Note: This is not guaranteed to be up to date!
 };
 
 }
