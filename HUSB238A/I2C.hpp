@@ -1,9 +1,9 @@
-#ifndef I2CSLAVE_HPP
-#define I2CSLAVE_HPP
+#ifndef I2C_HPP
+#define I2C_HPP
 
 #include "GlobalImport.h"
 
-namespace HUSB238A {
+namespace husb238a {
 
 /**
  * @brief Connection to an I2C device.
@@ -46,4 +46,4 @@ private:
 
 }
 
-#endif //I2CSLAVE_HPP
+#endif //I2C_HPP

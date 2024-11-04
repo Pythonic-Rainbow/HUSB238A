@@ -2,7 +2,7 @@
 
 #include <Wire.h>
 
-namespace HUSB238A {
+namespace husb238a {
     I2C::I2C(const uint8_t addr) {
         _addr = addr;
         Wire.begin();
