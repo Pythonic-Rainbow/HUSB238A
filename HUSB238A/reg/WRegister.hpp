@@ -8,8 +8,7 @@
 namespace husb238a {
     class WRegister : public Register {
     protected:
-        explicit WRegister(const uint8_t value) : Register(value) {
-        }
+        ~WRegister() = default;
 
         void set_bits_1(const uint8_t mask) {
             _val |= mask;

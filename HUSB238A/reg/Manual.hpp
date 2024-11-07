@@ -2,48 +2,44 @@
 #define MANUAL_HPP
 
 namespace husb238a {
+    class Manual final : public WRegister {
+    public:
+        RegisterAddress get_addr() override {
+            return MANUAL;
+        }
 
-class Manual : public WRegister {
-public:
-    explicit Manual(const uint8_t value) : WRegister(value) {}
+        bool force_dpm_hiz() const {
+            return get_bit(regdetail::FORCE_DPM_HIZ);
+        }
 
-    RegisterAddress get_addr() override {
-        return MANUAL;
-    }
+        void force_dpm_hiz(const bool value) {
+            set_bit_n(regdetail::FORCE_DPM_HIZ, value);
+        }
 
-    bool get_force_dpm_hiz() const {
-        return get_bit(regdetail::FORCE_DPM_HIZ);
-    }
+        bool unatt_snk() const {
+            return get_bit(regdetail::UNATT_SNK);
+        }
 
-    void set_force_dpm_hiz(bool value) {
-        set_bit_n(regdetail::FORCE_DPM_HIZ, value);
-    }
+        void unatt_snk(const bool value) {
+            set_bit_n(regdetail::UNATT_SNK, value);
+        }
 
-    bool get_unatt_snk() const {
-        return get_bit(regdetail::UNATT_SNK);
-    }
+        bool disabled() const {
+            return get_bit(regdetail::DISABLED);
+        }
 
-    void set_unatt_snk(bool value) {
-        set_bit_n(regdetail::UNATT_SNK, value);
-    }
+        void disabled(const bool value) {
+            set_bit_n(regdetail::DISABLED, value);
+        }
 
-    bool get_disabled() const {
-        return get_bit(regdetail::DISABLED);
-    }
+        bool error_rec() const {
+            return _val;
+        }
 
-    void set_disabled(bool value) {
-        set_bit_n(regdetail::DISABLED, value);
-    }
-
-    bool get_error_rec() const {
-        return _val;
-    }
-
-    void set_error_rec(bool value) {
-        set_bit_n(regdetail::ERROR_REC, value);
-    }
-};
-
+        void error_rec(const bool value) {
+            set_bit_n(regdetail::ERROR_REC, value);
+        }
+    };
 } // husb238a
 
 #endif //MANUAL_HPP

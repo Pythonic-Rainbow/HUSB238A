@@ -3,9 +3,8 @@
 
 namespace husb238a {
 
-    class DPDMStatus : public Register {
+    class DPDMStatus final : public Register {
     public:
-        explicit DPDMStatus(const uint8_t value) : Register(value) {}
 
         RegisterAddress get_addr() override {
             return DPDM_STATUS;

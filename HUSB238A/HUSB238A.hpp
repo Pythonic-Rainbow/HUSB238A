@@ -31,19 +31,9 @@ namespace husb238a {
 
         /* General purpose access for any registers */
         int read_register_byte(RegisterAddress addr) const;
-
         int write_register_byte(RegisterAddress addr, uint8_t value) const;
 
-        template <typename T>
-        T* read_register() const {
-            static_assert(__is_base_of(Register, T), "T must be derived from Register");
-            const int read_result = read_register_byte(T(0).get_addr());
-            if (read_result == -1) {
-                return nullptr;
-            }
-            return new T(read_result);
-        }
-
+        bool read_register(Register* reg) const;
         int write_register(WRegister* reg) const;
 
     private:

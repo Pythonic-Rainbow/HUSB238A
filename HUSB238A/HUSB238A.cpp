@@ -19,7 +19,17 @@ namespace husb238a {
         return _i2c.write_register(addr, value);
     }
 
+    bool HUSB238A::read_register(Register* reg) const {
+        const int read_result = read_register_byte(reg->get_addr());
+        if (read_result == -1) {
+            return false;
+        }
+        reg->set_val(read_result);
+        return true;
+    }
+
     int HUSB238A::write_register(WRegister* reg) const {
         return _i2c.write_register(reg->get_addr(), reg->get_val());
     }
+
 }

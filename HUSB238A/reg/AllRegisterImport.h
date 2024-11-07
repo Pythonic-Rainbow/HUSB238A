@@ -8,6 +8,7 @@
 #include "Manual.hpp"
 #include "Reset.hpp"
 #include "Mask.hpp"
+#include "Mask1.hpp"
 
 #include "DPDMStatus.hpp"
 #include "ContractStatus0.hpp"

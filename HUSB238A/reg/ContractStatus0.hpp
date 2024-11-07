@@ -2,10 +2,8 @@
 #define CONTRACTSTATUS0_HPP
 
 namespace husb238a {
-    class ContractStatus0 : public Register {
+    class ContractStatus0 final : public Register {
     public:
-        explicit ContractStatus0(const uint8_t value) : Register(value) {}
-
         RegisterAddress get_addr() override {
             return CONTRACT_STATUS0;
         }

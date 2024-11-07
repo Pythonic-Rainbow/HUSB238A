@@ -5,16 +5,14 @@
 #include "RegisterDetails.hpp"
 
 namespace husb238a {
-    class PortRole : public Register {
+    class PortRole final : public Register {
     public:
-        explicit PortRole(const uint8_t value) : Register(value) {}
-
         RegisterAddress get_addr() override {
             return PORTROLE;
         }
 
         bool is_sink_only() const {
-            return get_bit(regdetail::PortRole::SINK_ONLY) == 0;
+            return get_bit(regdetail::SINK_ONLY == 0);
         }
     };
 } // HUSB238A
