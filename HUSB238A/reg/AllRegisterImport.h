@@ -9,6 +9,10 @@
 #include "Reset.hpp"
 #include "Mask.hpp"
 #include "Mask1.hpp"
+#include "Mask2.hpp"
+#include "Interrupt.hpp"
+#include "Interrupt1.hpp"
+#include "Interrupt2.hpp"
 
 #include "DPDMStatus.hpp"
 #include "ContractStatus0.hpp"
