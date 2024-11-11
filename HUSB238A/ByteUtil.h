@@ -58,7 +58,7 @@ namespace husb238a {
     * Set a range of bits to a value
     * @param self self
     * @param mask bit mask for the range. NOTE: You should use the enums defined in RegisterDetails.hpp
-    * @param value The bits value
+    * @param value The bits value. NOTE: Amount of bits should be == mask
     */
     inline uint8_t set_bits_n(uint8_t self, const uint8_t mask, const uint8_t value) {
         self = set_bits_0(self, mask);  // Clear those bits first

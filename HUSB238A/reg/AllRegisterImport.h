@@ -13,6 +13,10 @@
 #include "Interrupt.hpp"
 #include "Interrupt1.hpp"
 #include "Interrupt2.hpp"
+#include "UserCfg0.hpp"
+#include "UserCfg1.hpp"
+#include "UserCfg2.hpp"
+#include "UserCfg3.hpp"
 
 #include "DPDMStatus.hpp"
 #include "ContractStatus0.hpp"
