@@ -2,15 +2,17 @@
 #define HUSB238A_HPP
 
 #include <reg/RegisterAddresses.hpp>
-#include <reg/WRegister.hpp>
+#include "reg/WRegister.hpp"
 
 #include "I2C.hpp"
 
-
-#define HUSB238A_I2CADDR_GND 0x42  // Default I2C slave address of a HUSB238A when connected to GND
-#define HUSB238A_I2CADDR_VDD 0x62  // Default I2C slave address of a HUSB238A when connected to VDD
-
 namespace husb238a {
+    enum DefaultI2CAddress : uint8_t {
+        GND = 0x42,  // Default I2C slave address of a HUSB238A when connected to GND
+        VDD = 0x62  // Default I2C slave address of a HUSB238A when connected to VDD
+    };
+
+
     class HUSB238A {
     public:
         /**

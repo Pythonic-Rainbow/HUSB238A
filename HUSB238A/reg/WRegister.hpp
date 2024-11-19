@@ -1,13 +1,14 @@
 #ifndef WREGISTER_HPP
 #define WREGISTER_HPP
 
-#include <ByteUtil.h>
+#include "ByteUtil.hpp"
 
 #include "Register.hpp"
 
 namespace husb238a {
     class WRegister : public Register {
     protected:
+        WRegister() = default;
         ~WRegister() = default;
 
         void set_bits_1(const uint8_t mask) {

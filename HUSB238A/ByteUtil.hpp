@@ -1,7 +1,11 @@
-#ifndef BYTEUTIL_H
-#define BYTEUTIL_H
+#ifndef BYTEUTIL_HPP
+#define BYTEUTIL_HPP
 
 namespace husb238a {
+    constexpr int get_rbit_pos(const uint8_t mask) {
+        return __builtin_ctz(mask);
+    }
+
     /**
     * Gets a single bit
     * @param self self
@@ -16,13 +20,9 @@ namespace husb238a {
     * @param self self
     * @param mask bit mask for the range. NOTE: You should use the enums defined in RegisterDetails.hpp
      */
-    inline uint8_t get_bits(uint8_t self, uint8_t mask) {
+    inline uint8_t get_bits(uint8_t self, const uint8_t mask) {
         self &= mask;
-        while ((mask & 1) == 0) {
-            mask >>= 1;
-            self >>= 1;
-        }
-        return self;
+        return self >> get_rbit_pos(mask);
     }
 
     /**
@@ -62,13 +62,8 @@ namespace husb238a {
     */
     inline uint8_t set_bits_n(uint8_t self, const uint8_t mask, const uint8_t value) {
         self = set_bits_0(self, mask);  // Clear those bits first
-        int shift_amount = 0, shifter = mask;
-        while ((shifter & 1) == 0) {
-            shifter >>= 1;
-            shift_amount++;
-        }
-        return self | value << shift_amount;  // Set the bits to the value
+        return self | value << get_rbit_pos(mask);  // Set the bits to the value
     }
 }
 
-#endif //BYTEUTIL_H
+#endif //BYTEUTIL_HPP
