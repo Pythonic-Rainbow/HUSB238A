@@ -1,6 +1,8 @@
 #ifndef REGISTER_HPP
 #define REGISTER_HPP
 
+#include "RegisterAddresses.hpp"
+
 namespace husb238a {
     class HUSB238A;
 

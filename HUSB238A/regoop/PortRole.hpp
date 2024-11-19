@@ -1,9 +1,6 @@
 #ifndef PORTROLE_HPP
 #define PORTROLE_HPP
 
-#include "Register.hpp"
-#include "RegisterDetails.hpp"
-
 namespace husb238a {
     class PortRole final : public Register {
     public:

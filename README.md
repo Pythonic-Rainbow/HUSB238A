@@ -1,5 +1,6 @@
 # HUSB238A
 This is a C++ focused library for the HUSB238A, featuring 3 levels of access with a modular I2C interface.
+* No dynamic memory allocation
 ```mermaid
 flowchart BT
     A[Byte access] --> B[Register OOP]
@@ -25,6 +26,7 @@ int main() {
     h238a.write_register_byte(CONTROL1, byte_control1);  // You can even write it to another address
     
     // 2. Register OOP - Register address is fixed, you can access a register by its fields
+    #include "reg/AllRegisterImport.h"  // Recommended - one header for the entire RegOOP layer
     Control1 control1;  // Address is fixed in the class
     h238a.read_register(&control1);
     control1.enable(true);  // Access by fields

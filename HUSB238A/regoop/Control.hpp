@@ -1,8 +1,6 @@
 #ifndef CONTROL_HPP
 #define CONTROL_HPP
 
-#include "WRegister.hpp"
-
 namespace husb238a {
     class Control final : public WRegister {
     public:
