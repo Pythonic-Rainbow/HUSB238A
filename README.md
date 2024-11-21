@@ -13,25 +13,33 @@ flowchart BT
 # Quick example
 ```cpp
 #include "HUSB238A.hpp"
-#include "ByteUtil.hpp"
-
 using namespace husb238a;
 
 const HUSB238A h238a(VDD);  // A connection to the 238A via default VDD I2C address
+```
+1. Byte access - You have full control over the register data and address
+```cpp
+#include "ByteUtil.hpp"
 
-int main() {
-    // 1. Byte access - You have full control over the register data and address
-    byte byte_control1 = h238a.read_register_byte(CONTROL1);
-    byte_control1 = set_bits_1(byte_control1, regdetail::ENABLE);  // You can change the entire byte
-    h238a.write_register_byte(CONTROL1, byte_control1);  // You can even write it to another address
-    
-    // 2. Register OOP - Register address is fixed, you can access a register by its fields
-    #include "reg/AllRegisterImport.h"  // Recommended - one header for the entire RegOOP layer
-    Control1 control1;  // Address is fixed in the class
-    h238a.read_register(&control1);
-    control1.enable(true);  // Access by fields
-    h238a.write_register(&control1);
-}
+byte byte_control1 = h238a.read_register_byte(CONTROL1);
+byte_control1 = set_bits_1(byte_control1, field::ENABLE);  // Set the ENABLE field to 1
+h238a.write_register_byte(CONTROL1, byte_control1);
+
+// You can write any value to any register - Good for debugging but error prone
+h238a.write_register_byte(CONTROL1, 0x69);
+```
+2. Register OOP - Register address is fixed, you can access a register by its fields
+```cpp
+#include "reg/AllRegisterImport.h"  // Recommended - one header for the entire RegOOP layer
+
+Control1 control1;  // Address is fixed in the class
+h238a.read_register(&control1);
+control1.enable(true);  // Access by fields
+h238a.write_register(&control1);
+
+PortRole portrole; // Some registers are read-only
+h238a.read_register(&portrole);  // OK
+h238a.write_register(&portrole);  // Error - read-only register
 ```
 
 # Setup

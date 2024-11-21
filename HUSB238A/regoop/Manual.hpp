@@ -9,27 +9,27 @@ namespace husb238a {
         }
 
         bool force_dpm_hiz() const {
-            return get_bit(regdetail::FORCE_DPM_HIZ);
+            return get_bit(field::FORCE_DPM_HIZ);
         }
 
         void force_dpm_hiz(const bool value) {
-            set_bit_n(regdetail::FORCE_DPM_HIZ, value);
+            set_bit_n(field::FORCE_DPM_HIZ, value);
         }
 
         bool unatt_snk() const {
-            return get_bit(regdetail::UNATT_SNK);
+            return get_bit(field::UNATT_SNK);
         }
 
         void unatt_snk(const bool value) {
-            set_bit_n(regdetail::UNATT_SNK, value);
+            set_bit_n(field::UNATT_SNK, value);
         }
 
         bool disabled() const {
-            return get_bit(regdetail::DISABLED);
+            return get_bit(field::DISABLED);
         }
 
         void disabled(const bool value) {
-            set_bit_n(regdetail::DISABLED, value);
+            set_bit_n(field::DISABLED, value);
         }
 
         bool error_rec() const {
@@ -37,7 +37,7 @@ namespace husb238a {
         }
 
         void error_rec(const bool value) {
-            set_bit_n(regdetail::ERROR_REC, value);
+            set_bit_n(field::ERROR_REC, value);
         }
     };
 } // husb238a

@@ -11,15 +11,15 @@ namespace husb238a {
         }
 
         uint8_t get_cdp_flag() const {
-            return get_bit(regdetail::CDP_FLAG);
+            return get_bit(field::CDP_FLAG);
         }
 
         uint8_t get_sdp_flag() const {
-            return get_bit(regdetail::SDP_FLAG);
+            return get_bit(field::SDP_FLAG);
         }
 
         uint8_t get_divider3_flag() const {
-            return get_bit(regdetail::DIVIDER3_FLAG);
+            return get_bit(field::DIVIDER3_FLAG);
         }
     };
 

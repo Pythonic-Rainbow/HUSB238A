@@ -9,35 +9,35 @@ namespace husb238a {
         }
 
         bool i_exit_epr() const {
-            return get_bit(regdetail::I_EXIT_EPR);
+            return get_bit(field::I_EXIT_EPR);
         }
 
         void i_exit_epr(const bool value) {
-            set_bit_n(regdetail::I_EXIT_EPR, value);
+            set_bit_n(field::I_EXIT_EPR, value);
         }
 
         bool i_go_fail() const {
-            return get_bit(regdetail::I_GO_FAIL);
+            return get_bit(field::I_GO_FAIL);
         }
 
         void i_go_fail(const bool value) {
-            set_bit_n(regdetail::I_GO_FAIL, value);
+            set_bit_n(field::I_GO_FAIL, value);
         }
 
         bool i_epr_mode() const {
-            return get_bit(regdetail::I_EPR_MODE);
+            return get_bit(field::I_EPR_MODE);
         }
 
         void i_epr_mode(const bool value) {
-            set_bit_n(regdetail::I_EPR_MODE, value);
+            set_bit_n(field::I_EPR_MODE, value);
         }
 
         bool i_pd_hv() const {
-            return get_bit(regdetail::I_PD_HV);
+            return get_bit(field::I_PD_HV);
         }
 
         void i_pd_hv(const bool value) {
-            set_bit_n(regdetail::I_PD_HV, value);
+            set_bit_n(field::I_PD_HV, value);
         }
     };
 } // husb238a

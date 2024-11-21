@@ -2,7 +2,8 @@
 #define ALLREGISTERIMPORT_H
 
 // This header imports all register classes
-#include "RegisterDetails.hpp"
+#include "Fields.hpp"
+#include "FieldValues.hpp"
 
 
 #include "regoop/PortRole.hpp"

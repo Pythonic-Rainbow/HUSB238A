@@ -8,7 +8,7 @@ namespace husb238a {
             return GO_COMMAND;
         }
 
-        void go(const regdetail::FieldGoCommand value) {
+        void go(const fieldval::GoCommand value) {
             _val = value;
         }
     };

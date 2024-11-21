@@ -9,11 +9,11 @@ namespace husb238a {
         }
 
         uint8_t get_pd_contract() const {
-            return get_bits(regdetail::PD_CONTRACT);
+            return get_bits(field::PD_CONTRACT);
         }
 
         uint8_t get_dpm_contract() const {
-            return get_bits(regdetail::DPM_CONTRACT);
+            return get_bits(field::DPM_CONTRACT);
         }
     };
 

@@ -9,7 +9,7 @@ namespace husb238a {
         }
 
         bool is_sink_only() const {
-            return get_bit(regdetail::SINK_ONLY == 0);
+            return get_bit(field::SINK_ONLY == 0);
         }
     };
 } // HUSB238A

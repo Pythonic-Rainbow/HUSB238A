@@ -9,35 +9,35 @@ namespace husb238a {
         }
 
         bool en_dpm_hiz() const {
-            return get_bit(regdetail::EN_DPM_HIZ);
+            return get_bit(field::EN_DPM_HIZ);
         }
 
         void en_dpm_hiz(const bool value) {
-            set_bit_n(regdetail::EN_DPM_HIZ, value);
+            set_bit_n(field::EN_DPM_HIZ, value);
         }
 
         bool vdm_respond() const {
-            return get_bit(regdetail::VDM_RESPOND);
+            return get_bit(field::VDM_RESPOND);
         }
 
         void vdm_respond(const bool value) {
-            set_bit_n(regdetail::VDM_RESPOND, value);
+            set_bit_n(field::VDM_RESPOND, value);
         }
 
         bool enable() const {
-            return get_bit(regdetail::ENABLE);
+            return get_bit(field::ENABLE);
         }
 
         void enable(const bool value) {
-            set_bit_n(regdetail::ENABLE, value);
+            set_bit_n(field::ENABLE, value);
         }
 
         uint8_t tccdeb() const {
-            return _val & regdetail::TCCDEB;
+            return _val & field::TCCDEB;
         }
 
         void tccdeb(const uint8_t value) {
-            set_bits_n(regdetail::TCCDEB, value);
+            set_bits_n(field::TCCDEB, value);
         }
     };
 } // husb238a

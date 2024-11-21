@@ -9,35 +9,35 @@ namespace husb238a {
         }
 
         bool en_hvdcp() const {
-            return get_bits(regdetail::EN_HVDCP);
+            return get_bits(field::EN_HVDCP);
         }
 
         void en_hvdcp(const uint8_t value) {
-            set_bits_n(regdetail::EN_HVDCP, value);
+            set_bits_n(field::EN_HVDCP, value);
         }
 
         bool en_vb_uv() const {
-            return get_bit(regdetail::EN_VB_UV);
+            return get_bit(field::EN_VB_UV);
         }
 
         void en_vb_uv(const bool value) {
-            set_bit_n(regdetail::EN_VB_UV, value);
+            set_bit_n(field::EN_VB_UV, value);
         }
 
         bool en_svid3() const {
-            return get_bit(regdetail::EN_SVID3);
+            return get_bit(field::EN_SVID3);
         }
 
         void en_svid3(const bool value) {
-            set_bit_n(regdetail::EN_SVID3, value);
+            set_bit_n(field::EN_SVID3, value);
         }
 
         uint8_t out2_sel() const {
-            return get_bits(regdetail::OUT2_SEL);
+            return get_bits(field::OUT2_SEL);
         }
 
         void out2_sel(const uint8_t value) {
-            set_bits_n(regdetail::OUT2_SEL, value);
+            set_bits_n(field::OUT2_SEL, value);
         }
     };
 } // husb238a

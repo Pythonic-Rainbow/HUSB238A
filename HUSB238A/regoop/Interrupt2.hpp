@@ -9,59 +9,59 @@ namespace husb238a {
         }
 
         bool i_tsd() const {
-            return get_bit(regdetail::I_TSD);
+            return get_bit(field::I_TSD);
         }
 
         void i_tsd(const bool value) {
-            set_bit_n(regdetail::I_TSD, value);
+            set_bit_n(field::I_TSD, value);
         }
 
         bool i_vbus_uv() const {
-            return get_bit(regdetail::I_VBUS_UV);
+            return get_bit(field::I_VBUS_UV);
         }
 
         void i_vbus_uv(const bool value) {
-            set_bit_n(regdetail::I_VBUS_UV, value);
+            set_bit_n(field::I_VBUS_UV, value);
         }
 
         bool i_dr_role() const {
-            return get_bit(regdetail::I_DR_ROLE);
+            return get_bit(field::I_DR_ROLE);
         }
 
         void i_dr_role(const bool value) {
-            set_bit_n(regdetail::I_DR_ROLE, value);
+            set_bit_n(field::I_DR_ROLE, value);
         }
 
         bool i_src_alert() const {
-            return get_bit(regdetail::I_SRC_ALERT);
+            return get_bit(field::I_SRC_ALERT);
         }
 
         void i_src_alert(const bool value) {
-            set_bit_n(regdetail::I_SRC_ALERT, value);
+            set_bit_n(field::I_SRC_ALERT, value);
         }
 
         bool i_frc_fail() const {
-            return get_bit(regdetail::I_FRC_FAIL);
+            return get_bit(field::I_FRC_FAIL);
         }
 
         void i_frc_fail(const bool value) {
-            set_bit_n(regdetail::I_FRC_FAIL, value);
+            set_bit_n(field::I_FRC_FAIL, value);
         }
 
         bool i_frc_succ() const {
-            return get_bit(regdetail::I_FRC_SUCC);
+            return get_bit(field::I_FRC_SUCC);
         }
 
         void i_frc_succ(const bool value) {
-            set_bit_n(regdetail::I_FRC_SUCC, value);
+            set_bit_n(field::I_FRC_SUCC, value);
         }
 
         bool i_vdm_msg() const {
-            return get_bit(regdetail::I_VDM_MSG);
+            return get_bit(field::I_VDM_MSG);
         }
 
         void i_vdm_msg(const bool value) {
-            set_bit_n(regdetail::I_VDM_MSG, value);
+            set_bit_n(field::I_VDM_MSG, value);
         }
     };
 } // husb238a
