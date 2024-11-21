@@ -33,7 +33,7 @@ namespace husb238a {
         }
 
         uint8_t tccdeb() const {
-            return _val & field::TCCDEB;
+            return get_bits(_val & field::TCCDEB);
         }
 
         void tccdeb(const uint8_t value) {

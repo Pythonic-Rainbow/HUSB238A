@@ -8,10 +8,6 @@ namespace husb238a {
             return RESET;
         }
 
-        bool sw_res() const {
-            return _val;
-        }
-
         void sw_res(const bool value) {
             _val = value;
         }

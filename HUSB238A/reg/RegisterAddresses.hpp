@@ -1,7 +1,6 @@
 #ifndef REGISTERADDRESSES_HPP
 #define REGISTERADDRESSES_HPP
-
-#include "GlobalImport.h"
+#include <stdint.h>
 
 namespace husb238a {
     enum RegisterAddress : uint8_t {

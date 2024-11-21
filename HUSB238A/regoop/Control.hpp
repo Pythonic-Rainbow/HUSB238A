@@ -9,10 +9,6 @@ namespace husb238a {
             return CONTROL;
         }
 
-        bool int_mask() const {
-            return _val;
-        }
-
         void int_mask(const bool value) {
             _val = value;
         }

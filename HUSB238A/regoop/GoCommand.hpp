@@ -8,7 +8,11 @@ namespace husb238a {
             return GO_COMMAND;
         }
 
-        void go(const fieldval::GoCommand value) {
+        fval::GoCommand::T go() const {
+            return static_cast<fval::GoCommand::T>(get_val());
+        }
+
+        void go(const fval::GoCommand::T value) {
             _val = value;
         }
     };

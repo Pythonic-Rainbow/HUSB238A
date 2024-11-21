@@ -6,6 +6,20 @@ namespace husb238a {
         return __builtin_ctz(mask);
     }
 
+    // Count amount of bits in a byte
+    inline int count(uint8_t byte) {
+        int count = 0;
+        while (byte) {
+            byte &= byte - 1; // Clears the lowest set bit
+            count++;
+        }
+        return count;
+    }
+
+    inline uint32_t combine(const uint8_t b3, const uint8_t b2, const uint8_t b1, const uint8_t b0) {
+        return b3 << 24 | b2 << 16 | b1 << 8 | b0;
+    }
+
     /**
     * Gets a single bit
     * @param self self
@@ -58,9 +72,10 @@ namespace husb238a {
     * Set a range of bits to a value
     * @param self self
     * @param mask bit mask for the range. NOTE: You should use the enums defined in RegisterDetails.hpp
-    * @param value The bits value. NOTE: Amount of bits should be == mask
+    * @param value The bits value.
     */
-    inline uint8_t set_bits_n(uint8_t self, const uint8_t mask, const uint8_t value) {
+    inline uint8_t set_bits_n(uint8_t self, const uint8_t mask, uint8_t value) {
+        value &= 1 << (count(mask) - 1);  // Clear high bits that exceed the mask length
         self = set_bits_0(self, mask);  // Clear those bits first
         return self | value << get_rbit_pos(mask);  // Set the bits to the value
     }

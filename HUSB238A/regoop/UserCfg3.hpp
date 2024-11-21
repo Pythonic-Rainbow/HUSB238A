@@ -48,11 +48,11 @@ namespace husb238a {
             set_bit_n(field::SNK_CAP_MIN_VOLTAGE, value);
         }
 
-        uint8_t snk_pdo1_current() const {
-            return get_bits(field::SNK_PDO1_CURRENT);
+        fval::SnkPDO1Current::T snk_pdo1_current() const {
+            return static_cast<fval::SnkPDO1Current::T>(get_bits(field::SNK_PDO1_CURRENT));
         }
 
-        void snk_pdo1_current(const uint8_t value) {
+        void snk_pdo1_current(const fval::SnkPDO1Current::T value) {
             set_bits_n(field::SNK_PDO1_CURRENT, value);
         }
     };

@@ -1,10 +1,9 @@
-#ifndef ALLREGISTERIMPORT_H
-#define ALLREGISTERIMPORT_H
+#ifndef REGOOP_H
+#define REGOOP_H
 
-// This header imports all register classes
-#include "Fields.hpp"
-#include "FieldValues.hpp"
-
+// This header imports everything you'll need for the RegOOP layer
+#include "reg/Fields.hpp"
+#include "reg/FieldValues.hpp"
 
 #include "regoop/PortRole.hpp"
 #include "regoop/Control.hpp"
@@ -22,8 +21,10 @@
 #include "regoop/UserCfg2.hpp"
 #include "regoop/UserCfg3.hpp"
 #include "regoop/GoCommand.hpp"
+#include "regoop/SrcPDO.hpp"
+#include "regoop/SnkPPSCurrent.hpp"
 
 #include "regoop/DPDMStatus.hpp"
 #include "regoop/ContractStatus0.hpp"
 
-#endif //ALLREGISTERIMPORT_H
+#endif //REGOOP_H

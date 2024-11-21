@@ -8,11 +8,11 @@ namespace husb238a {
             return USER_CFG0;
         }
 
-        uint8_t tsnkdscnt() const {
-            return get_bits(field::TSNKDSCNT);
+        fval::TSNKDSCNT::T tsnkdscnt() const {
+            return static_cast<fval::TSNKDSCNT::T>(get_bits(field::TSNKDSCNT));
         }
 
-        void tsnkdscnt(const uint8_t value) {
+        void tsnkdscnt(const fval::TSNKDSCNT::T value) {
             set_bits_n(field::TSNKDSCNT, value);
         }
 
@@ -32,19 +32,19 @@ namespace husb238a {
             set_bit_n(field::TFAUL, value);
         }
 
-        uint8_t tvbdsgtimeout() const {
-            return get_bits(field::TVBDSGTIMEOUT);
+        fval::TVBDSGTIMEOUT::T tvbdsgtimeout() const {
+            return static_cast<fval::TVBDSGTIMEOUT::T>(get_bits(field::TVBDSGTIMEOUT));
         }
 
-        void tvbdsgtimeout(const uint8_t value) {
+        void tvbdsgtimeout(const fval::TVBDSGTIMEOUT::T value) {
             set_bits_n(field::TVBDSGTIMEOUT, value);
         }
 
-        uint8_t tbc_level() const {
-            return get_bits(field::TBC_LEVEL);
+        fval::TBCLevel::T tbc_level() const {
+            return static_cast<fval::TBCLevel::T>(get_bits(field::TBC_LEVEL));
         }
 
-        void tbc_level(const bool value) {
+        void tbc_level(const fval::TBCLevel::T value) {
             set_bits_n(field::TBC_LEVEL, value);
         }
     };

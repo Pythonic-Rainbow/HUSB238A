@@ -6,6 +6,8 @@
 * @brief Bit masks for register fields
 */
 
+// Don't define registers with a single [7:0] or [0:0] field
+
 namespace husb238a::field {
 
     enum PortRole : uint8_t {
@@ -24,10 +26,6 @@ namespace husb238a::field {
         UNATT_SNK = 1<<3,
         DISABLED = 1<<1,
         ERROR_REC = 1
-    };
-
-    enum Reset : uint8_t {
-        SW_RES = 1
     };
 
     enum Mask : uint8_t {
