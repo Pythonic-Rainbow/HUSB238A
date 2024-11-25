@@ -2,7 +2,7 @@
 #define HUSB238A_HPP
 
 #include <reg/RegisterAddresses.hpp>
-#include "reg/WRegister.hpp"
+#include "regoop/common/WRegister.hpp"
 
 #include "I2C.hpp"
 

@@ -16,6 +16,10 @@ namespace husb238a {
         return count;
     }
 
+    inline uint16_t combine(const uint8_t b1, const uint8_t b0) {
+        return b1 << 8 | b0;
+    }
+
     inline uint32_t combine(const uint8_t b3, const uint8_t b2, const uint8_t b1, const uint8_t b0) {
         return b3 << 24 | b2 << 16 | b1 << 8 | b0;
     }

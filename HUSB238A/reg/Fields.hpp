@@ -126,14 +126,10 @@ namespace husb238a::field {
         SNK_PPS_CURRENT = 0b1111111
     };
 
-    enum SnkAvsCurrent : uint8_t {
-        SNK_AVS_VOL_M = 1<<7,
-        SNK_AVS_CURRENT = 0b1111111
-    };
-
-    enum EPRAVSCurrent : uint8_t {
-        EPR_AVS_VOL_M = 1<<7,
-        EPR_AVS_CURRENT = 0b1111111
+    // Shared by SNK_AVS_CURRENT and EPR_AVS_CURRENT registers
+    enum AVSCurrent : uint8_t {
+        AVS_VOL_M = 1<<7,
+        AVS_CURRENT = 0b1111111
     };
 
     enum SnkPDP : uint8_t {

@@ -5,21 +5,11 @@
 /**
 * @file FieldValues.hpp
 * @brief Field values for HUSB238A
-*
-* This file also provides methods to convert different fields from/to actual values.
-* For to_x methods the return value is -1 if the input is invalid.
+* In traditional enums, the values will pollute the namespace. I work around this by creating a namespace for each enum.
+* To reference an enum value, use fval::NAMESPACE::VALUE.
+* To specify the enum type, use fval::NAMESPACE::T.
 */
 namespace husb238a::fval {
-    inline int to_tccdeb(const int num) {
-        if (num < 120 || num > 180 || num % 10 != 0) {
-            return -1;
-        }
-        return num / 10 - 12;
-    }
-
-    inline int from_tccdeb(const uint8_t tccdeb) {
-        return (tccdeb + 12) * 10;
-    }
 
     namespace TSNKDSCNT {
         enum T : uint8_t {
@@ -101,28 +91,6 @@ namespace husb238a::fval {
             SRC_PDO_48V = 0b11100,
             SRC_EPR_AVS = 0b11110
         };
-    }
-
-    inline int to_snk_pps_voltage(const float num) {
-        if (num < 3 || num > 23.46 || static_cast<int>(num*100) % 2 != 0) {
-            return -1;
-        }
-        return static_cast<int>((num - 3) / 0.02);
-    }
-
-    inline float from_snk_pps_voltage(const uint32_t voltage) {
-        return static_cast<float>(voltage) * 2 / 100 + 3;
-    }
-
-    inline int to_snk_pps_current(const float num) {
-        if (num < 0 || num > 6.35 || static_cast<int>(num*100) % 5 != 0) {
-            return -1;
-        }
-        return static_cast<int>(num / 0.05);
-    }
-
-    inline float from_snk_pps_current(const uint32_t current) {
-        return static_cast<float>(current) * 5 / 100;
     }
 }
 

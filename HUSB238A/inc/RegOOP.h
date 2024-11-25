@@ -5,6 +5,8 @@
 #include "reg/Fields.hpp"
 #include "reg/FieldValues.hpp"
 
+#include "regoop/common/WRegister.hpp"
+
 #include "regoop/PortRole.hpp"
 #include "regoop/Control.hpp"
 #include "regoop/Control1.hpp"
@@ -23,6 +25,9 @@
 #include "regoop/GoCommand.hpp"
 #include "regoop/SrcPDO.hpp"
 #include "regoop/SnkPPSCurrent.hpp"
+#include "regoop/SnkAVSCurrent.hpp"
+#include "regoop/EPRAVSCurrent.hpp"
+#include "regoop/SnkPDP.hpp"
 
 #include "regoop/DPDMStatus.hpp"
 #include "regoop/ContractStatus0.hpp"
