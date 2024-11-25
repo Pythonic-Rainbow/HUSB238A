@@ -85,6 +85,15 @@ namespace husb238a::cvsn {
         return from_x(voltage, EPR_AVS_VOLTAGE);
     }
 
+    inline int from_contract_current_fpdo(const uint8_t current) {
+        const int step = current <= 0x7D ? 20 : 40;
+        return from_x(current, {500, step});
+    }
+
+    inline int from_contract_current_apdo(const uint8_t current) {
+        return from_x(current, {0, 50});
+    }
+
 }
 
 #endif //CONVERSION_H

@@ -28,7 +28,9 @@
 #include "regoop/SnkAVSCurrent.hpp"
 #include "regoop/EPRAVSCurrent.hpp"
 #include "regoop/SnkPDP.hpp"
-
+#include "regoop/Status.hpp"
+#include "regoop/Status1.hpp"
+#include "regoop/Type.hpp"
 #include "regoop/DPDMStatus.hpp"
 #include "regoop/ContractStatus0.hpp"
 

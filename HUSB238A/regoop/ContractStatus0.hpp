@@ -8,12 +8,12 @@ namespace husb238a {
             return CONTRACT_STATUS0;
         }
 
-        uint8_t get_pd_contract() const {
-            return get_bits(field::PD_CONTRACT);
+        fval::PDContract::T get_pd_contract() const {
+            return static_cast<fval::PDContract::T>(get_bits(field::PD_CONTRACT));
         }
 
-        uint8_t get_dpm_contract() const {
-            return get_bits(field::DPM_CONTRACT);
+        fval::DPMContract::T get_dpm_contract() const {
+            return static_cast<fval::DPMContract::T>(get_bits(field::DPM_CONTRACT));
         }
     };
 

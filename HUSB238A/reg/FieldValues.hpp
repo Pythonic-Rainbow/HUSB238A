@@ -10,7 +10,6 @@
 * To specify the enum type, use fval::NAMESPACE::T.
 */
 namespace husb238a::fval {
-
     namespace TSNKDSCNT {
         enum T : uint8_t {
             MS0,
@@ -74,6 +73,7 @@ namespace husb238a::fval {
 
     namespace PDOSelect {
         enum T : uint8_t {
+            NOT_SELECTED = 0,
             SRC_PDO_5V = 0b1,
             SRC_PDO_9V = 0b10,
             SRC_PDO_12V = 0b11,
@@ -90,6 +90,39 @@ namespace husb238a::fval {
             SRC_PDO_36V = 0b11010,
             SRC_PDO_48V = 0b11100,
             SRC_EPR_AVS = 0b11110
+        };
+    }
+
+    // Reg 0x67
+    namespace PDContract {
+        enum T : uint8_t {
+            TYPE_C_5V = 0,
+            SRC_PDO_5V = 0b1,
+            SRC_PDO_9V = 0b10,
+            SRC_PDO_12V = 0b11,
+            SRC_PDO_15V = 0b100,
+            SRC_PDO_20V = 0b101,
+            SRC_PDO_PPS1 = 0b110,
+            SRC_PDO_PPS2 = 0b111,
+            SRC_PDO_PPS3 = 0b1000,
+            SRC_PDO_AVS = 0b1001,
+            SRC_PDO_28V = 0b1010,
+            SRC_PDO_36V = 0b1011,
+            SRC_PDO_48V = 0b1100,
+            SRC_EPR_AVS = 0b1101
+        };
+    }
+
+    namespace DPMContract {
+        enum T : uint8_t {
+            DEFAULT_5V = 0,
+            DIVIDER3 = 0b1,
+            SDP = 0b10,
+            CDP = 0b11,
+            DCP = 0b100,
+            HVDCP = 0b101,
+            QC2_9V = 0b110,
+            QC2_12V = 0b111
         };
     }
 }
