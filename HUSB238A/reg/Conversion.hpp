@@ -6,6 +6,8 @@
 * @brief Conversion between human-readable numbers <-> register values.
 * to_x: Convert to register value. from_x: Convert to human-readable
 * For to_x methods the return value is -1 if the input is invalid.
+*
+* Note that the units used is based on the datasheet, e.g. some functions return mV and some V
 */
 namespace husb238a::cvsn {
     struct OffsetStep {
@@ -34,24 +36,24 @@ namespace husb238a::cvsn {
         return from_x(tccdeb, TCCDEB);
     }
 
-    constexpr OffsetStep SNK_PPS_VOLTAGE = {3000, 20};
+    constexpr OffsetStep PPS_VOLTAGE = {3000, 20};
 
-    inline int to_snk_pps_voltage(const int mV) {
-        return to_x(mV, 0x3FF, SNK_PPS_VOLTAGE);
+    inline int to_pps_voltage(const int mV) {
+        return to_x(mV, 0x3FF, PPS_VOLTAGE);
     }
 
-    inline int from_snk_pps_voltage(const uint16_t voltage) {
-        return from_x(voltage, SNK_PPS_VOLTAGE);
+    inline int from_pps_voltage(const uint16_t voltage) {
+        return from_x(voltage, PPS_VOLTAGE);
     }
 
-    constexpr OffsetStep SNK_PPS_CURRENT = {0, 50};
+    constexpr OffsetStep PPS_CURRENT = {0, 50};
 
-    inline int to_snk_pps_current(const int mA) {
-        return to_x(mA, 0x7F, SNK_PPS_CURRENT);
+    inline int to_pps_current(const int mA) {
+        return to_x(mA, 0x7F, PPS_CURRENT);
     }
 
-    inline int from_snk_pps_current(const uint8_t current) {
-        return from_x(current, SNK_PPS_CURRENT);
+    inline int from_pps_current(const uint8_t current) {
+        return from_x(current, PPS_CURRENT);
     }
 
     constexpr OffsetStep SNK_AVS_VOLTAGE = {0, 100};
@@ -102,6 +104,23 @@ namespace husb238a::cvsn {
 
     inline int from_src_pdo_xxv_current(const uint8_t current) {
         return from_x(current, SRC_PDO_XXV_CURRENT);
+    }
+
+    inline int from_avs_max_voltage(const uint8_t voltage) {
+       return from_x(voltage, {5, 1});
+    }
+
+    // Suitable for SRC_AVS_PDP (0x77) and EPR_AVS_PDP (0x78)
+    inline int from_avs_pdp(const uint8_t pdp) {
+        return from_x(pdp, {0, 1});
+    }
+
+    inline int from_epr_avs_max_voltage(const uint8_t voltage) {
+        return from_x(voltage, {20, 1});
+    }
+
+    inline int from_vbus_measurement(const uint8_t mV) {
+        return from_x(mV, {0, 125});
     }
 
 }

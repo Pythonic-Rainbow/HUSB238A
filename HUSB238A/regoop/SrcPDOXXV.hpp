@@ -3,6 +3,9 @@
 
 namespace husb238a {
 
+    /** @brief Register for SRC_PDO_XXV (0x6A-0x71) and SRC_PDO_PPSX (0x72-0x74)
+    *
+    */
     class SrcPDOXXV final : public Register {
         RegisterAddress addr;
 

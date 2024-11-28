@@ -34,5 +34,11 @@
 #include "regoop/ContractStatus0.hpp"
 #include "regoop/SourceCapInfo.hpp"
 #include "regoop/SrcPDOXXV.hpp"
+#include "regoop/SrcPPSVoltage.hpp"
+#include "regoop/SrcPDOAVS.hpp"
+#include "regoop/SrcEPRAVS.hpp"
+#include "regoop/VDMHeader.hpp"
+#include "regoop/SrcAlert.hpp"
+#include "regoop/SrcPPSStatusFlag.hpp"
 
 #endif //REGOOP_H

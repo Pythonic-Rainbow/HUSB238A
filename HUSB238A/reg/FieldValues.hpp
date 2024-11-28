@@ -125,6 +125,50 @@ namespace husb238a::fval {
             QC2_12V = 0b111
         };
     }
+
+    namespace PPSMaxVoltage {
+        enum T : uint8_t {
+            V5_9,
+            V11,
+            V16,
+            V21
+        };
+    }
+
+    namespace PPSMinVoltage {
+        enum T : uint8_t {
+            V3,
+            V3_3,
+            V5
+        };
+    }
+
+    namespace AVSMinVoltage {
+        enum T : uint8_t {
+            V5,
+            V9,
+            V15
+        };
+    }
+
+    namespace CommandType {
+        enum T : uint8_t {
+            REQ,
+            ACK,
+            NAK,
+            BUSY
+        };
+    }
+
+    namespace VDMType {
+        enum T : uint8_t {
+            DISCOVER_IDENTITY,
+            DISCOVER_SVIDS,
+            DISCOVER_MODES,
+            ENTER_MODE,
+            EXIT_MODE
+        };
+    }
 }
 
 #endif //FIELDVALUES_HPP

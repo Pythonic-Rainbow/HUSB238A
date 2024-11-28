@@ -89,8 +89,8 @@ namespace husb238a {
         VBUS_MEASUREMENT = 0x87,
         SRC_ALERT = 0x88,
         SRC_PPS_STATUS_VOLTAGE = 0x89,
-        PPS_STATUS_CURRENT = 0x8A,
-        PPS_STATUS_FLAG = 0x8B,
+        SRC_PPS_STATUS_CURRENT = 0x8A,
+        SRC_PPS_STATUS_FLAG = 0x8B,
 
         /* Manufacturer info */
         MNF_OFST0 = 0x8C,
