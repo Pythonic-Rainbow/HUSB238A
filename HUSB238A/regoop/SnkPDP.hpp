@@ -3,6 +3,7 @@
 
 namespace husb238a {
     class SnkPDP final : public WRegister {
+    public:
         RegisterAddress get_addr() override {
             return SNK_PDP;
         }

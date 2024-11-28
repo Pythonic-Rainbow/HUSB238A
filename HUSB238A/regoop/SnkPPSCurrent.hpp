@@ -3,6 +3,7 @@
 
 namespace husb238a {
     class SnkPPSCurrent final : public WRegister {
+    public:
         RegisterAddress get_addr() override {
             return SNK_PPS_CURRENT;
         }

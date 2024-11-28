@@ -79,7 +79,7 @@ namespace husb238a {
     * @param value The bits value.
     */
     inline uint8_t set_bits_n(uint8_t self, const uint8_t mask, uint8_t value) {
-        value &= 1 << (count(mask) - 1);  // Clear high bits that exceed the mask length
+        value &= (1 << count(mask)) - 1;  // Clear high bits that exceed the mask length
         self = set_bits_0(self, mask);  // Clear those bits first
         return self | value << get_rbit_pos(mask);  // Set the bits to the value
     }

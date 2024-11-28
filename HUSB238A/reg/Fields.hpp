@@ -176,12 +176,12 @@ namespace husb238a::field {
         POWER_LIMIT = 1<<5,
         DUAL_ROLE_POWER = 1<<4,
         USB_SUSPEND_SUPPORTED = 1<<3,
-        USB_COMMUNICATION_CAPABLE = 1<<2,
+        USB_COMMUNICATIONS_CAPABLE = 1<<2,
         DUAL_ROLE_DATA = 1<<1,
         EPR_MODE_CAPABLE = 1
     };
 
-    enum SrcPDOXXX : uint8_t {
+    enum SrcPDOXXV : uint8_t {
         DETECT = 1<<7,
         CURRENT = 0b1111111
     };

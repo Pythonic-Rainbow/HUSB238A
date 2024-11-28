@@ -2,7 +2,21 @@
 #define AVSCURRENT_HPP
 
 namespace husb238a {
-    class AVSCurrent : public WRegister {
+
+    class AVSCurrent final : public WRegister {
+        RegisterAddress addr;
+
+    public:
+        enum Addresses : uint8_t {
+            SNK = SNK_AVS_CURRENT,
+            EPR = EPR_AVS_CURRENT
+        };
+
+        explicit AVSCurrent(const Addresses addr) : addr(static_cast<RegisterAddress>(addr)) {}
+
+        RegisterAddress get_addr() override {
+            return addr;
+        }
 
         bool avs_vol_m() const {
             return get_bit(field::AVS_VOL_M);
@@ -19,9 +33,6 @@ namespace husb238a {
         void avs_current(const uint8_t value) {
             set_bits_n(field::AVS_CURRENT, value);
         }
-    protected:
-        AVSCurrent() = default;
-        ~AVSCurrent() = default;
     };
 } // husb238a
 

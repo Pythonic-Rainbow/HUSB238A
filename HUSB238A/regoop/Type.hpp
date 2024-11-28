@@ -3,6 +3,7 @@
 
 namespace husb238a {
     class Type final : public Register {
+    public:
         RegisterAddress get_addr() override {
             return TYPE;
         }

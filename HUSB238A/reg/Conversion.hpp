@@ -94,6 +94,16 @@ namespace husb238a::cvsn {
         return from_x(current, {0, 50});
     }
 
+    constexpr OffsetStep SRC_PDO_XXV_CURRENT = {0, 100};
+
+    inline int to_src_pdo_xxv_current(const int mA) {
+        return to_x(mA, 0x50, SRC_PDO_XXV_CURRENT);
+    }
+
+    inline int from_src_pdo_xxv_current(const uint8_t current) {
+        return from_x(current, SRC_PDO_XXV_CURRENT);
+    }
+
 }
 
 #endif //CONVERSION_H

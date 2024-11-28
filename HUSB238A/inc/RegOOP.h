@@ -25,13 +25,14 @@
 #include "regoop/GoCommand.hpp"
 #include "regoop/SrcPDO.hpp"
 #include "regoop/SnkPPSCurrent.hpp"
-#include "regoop/SnkAVSCurrent.hpp"
-#include "regoop/EPRAVSCurrent.hpp"
+#include "regoop/AVSCurrent.hpp"
 #include "regoop/SnkPDP.hpp"
 #include "regoop/Status.hpp"
 #include "regoop/Status1.hpp"
 #include "regoop/Type.hpp"
 #include "regoop/DPDMStatus.hpp"
 #include "regoop/ContractStatus0.hpp"
+#include "regoop/SourceCapInfo.hpp"
+#include "regoop/SrcPDOXXV.hpp"
 
 #endif //REGOOP_H

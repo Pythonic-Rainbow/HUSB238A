@@ -21,13 +21,18 @@ const HUSB238A h238a(VDD);  // A connection to the 238A via default VDD I2C addr
 ```cpp
 #include "inc/ByteAccess.h"  // Recommended - One header for the entire ByteAccess layer
 
-byte byte_control1 = h238a.read_register_byte(CONTROL1);
+uint8_t byte_control1 = h238a.read_register_byte(CONTROL1);
 if (get_bit(byte_control1, field::ENABLE) == 0) {  // Get ENABLE field
     byte_control1 = set_bits_1(byte_control1, field::ENABLE);  // Set ENABLE field to 1
 }
+
 // Handy converters for human integer <-> field binary values
 #include "inc/Conversion.hpp"
 byte_control1 = set_bits_n(byte_control1, field::TCCDEB, cvsn::to_tccdeb(120));  // Set the debounce to 120ms
+
+// Some field values (fval) are constants. fval::NAMESPACE::CONST provide them like enums.
+uint8_t go_cmd = h238.read_register_byte(GO_COMMAND);
+go_cmd = set_bits_n(go_cmd, field::GO, fval::GoCommand::SELECT_PDO);  // Set GO field to SELECT_PDO (0b1)
 
 // You have to perform a write action in order to actually update the register
 h238a.write_register_byte(CONTROL1, byte_control1);
@@ -47,9 +52,13 @@ if (!control1.enable()) {  // Get ENABLE field
 control1.tccdeb(cvsn::to_tccdeb(120));
 h238a.write_register(&control1);
 
-// fval::NAMESPACE::CONST act like enums. They define constants for the field values
 GoCommand go_cmd;
-go_cmd.go(fval::GoCommand::SELECT_PDO); // Set GO field to SELECT_PDO (0b1)
+h238a.read_register(&go_cmd);
+go_cmd.go(fval::GoCommand::SELECT_PDO);
+
+// Some classes are shared by multiple registers. They have an internal enum that you must use
+// to initialise those classes
+SrcPDOXXV src_pdo_5v(SrcPDOXXV::V5);
 
 PortRole portrole; // Some registers are read-only
 h238a.read_register(&portrole);  // OK
