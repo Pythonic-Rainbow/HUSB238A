@@ -23,7 +23,7 @@ namespace husb238a {
         }
 
         fval::PPSMinVoltage::T pps_min_voltage() const {
-            return static_cast<fval::PPSMinVoltage::T>(get_bits(field::PPS3_MAX_VOLTAGE));
+            return static_cast<fval::PPSMinVoltage::T>(get_bits(field::PPS_MIN_VOLTAGE));
         }
     };
 } // husb238a

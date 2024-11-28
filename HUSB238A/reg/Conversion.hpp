@@ -7,7 +7,8 @@
 * to_x: Convert to register value. from_x: Convert to human-readable
 * For to_x methods the return value is -1 if the input is invalid.
 *
-* Note that the units used is based on the datasheet, e.g. some functions return mV and some V
+* Note that the units used are based on the datasheet down to the nearest integer.
+* e.g. some functions return mV and some V
 */
 namespace husb238a::cvsn {
     struct OffsetStep {

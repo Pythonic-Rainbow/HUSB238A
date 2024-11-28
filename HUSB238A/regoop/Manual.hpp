@@ -33,7 +33,7 @@ namespace husb238a {
         }
 
         bool error_rec() const {
-            return _val;
+            return get_bit(field::ERROR_REC);
         }
 
         void error_rec(const bool value) {

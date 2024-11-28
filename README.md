@@ -4,7 +4,7 @@ This is a C++ focused library for the HUSB238A, featuring 3 levels of access wit
 ```mermaid
 flowchart BT
     A[Byte access] --> B[Register OOP]
-    B --> C[Command OOP]
+    B --> C["Command OOP (Coming Soon)"]
 
     I1[I2C interface] --> I2[Arduino Wire I2C implementation]
     I1 --> A
@@ -46,6 +46,7 @@ h238a.write_register_byte(CONTROL1, 0x69);
 
 Control1 control1;  // Address is fixed in the class
 h238a.read_register(&control1);
+control1.get_val(); // All RegOOP classes have a get_val() that retrieves the full byte
 if (!control1.enable()) {  // Get ENABLE field
     control1.enable(true);  // Set ENABLE field
 }
@@ -53,7 +54,6 @@ control1.tccdeb(cvsn::to_tccdeb(120));
 h238a.write_register(&control1);
 
 GoCommand go_cmd;
-h238a.read_register(&go_cmd);
 go_cmd.go(fval::GoCommand::SELECT_PDO);
 
 // Some classes are shared by multiple registers. They have an internal enum that you must use
