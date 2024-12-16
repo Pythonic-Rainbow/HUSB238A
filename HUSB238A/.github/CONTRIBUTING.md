@@ -9,6 +9,3 @@ For register with a single field [7:0]
     nothing
 
 If uses FieldVal, always need getter and setter
-
-TODO: For all from_x in Conversion, verify if argument data type is suitable e.g. used u8 instead of u16?
-TODO: Check if Conversion.hpp methods can be simplified by merging

@@ -37,6 +37,7 @@ namespace husb238a::cvsn {
         return from_x(tccdeb, TCCDEB);
     }
 
+    // Suitable for SNK_PPS_VOLTAGE(0x1A) and SRC_PPS_STATUS_VOLTAGE(0x89)
     constexpr OffsetStep PPS_VOLTAGE = {3000, 20};
 
     inline int to_pps_voltage(const int mV) {
@@ -47,35 +48,26 @@ namespace husb238a::cvsn {
         return from_x(voltage, PPS_VOLTAGE);
     }
 
-    constexpr OffsetStep PPS_CURRENT = {0, 50};
+    // Suitable for SNK_PPS_CURRENT(0x1B), SNK_AVS_CURRENT(0x1D) and EPR_AVS_CURRENT(0x20)
+    constexpr OffsetStep REQUEST_CURRENT = {0, 50};
 
-    inline int to_pps_current(const int mA) {
-        return to_x(mA, 0x7F, PPS_CURRENT);
+    inline int to_request_current(const int mA) {
+        return to_x(mA, 0x7F, REQUEST_CURRENT);
     }
 
-    inline int from_pps_current(const uint8_t current) {
-        return from_x(current, PPS_CURRENT);
+    inline int from_request_current(const uint8_t current) {
+        return from_x(current, REQUEST_CURRENT);
     }
 
     constexpr OffsetStep SNK_AVS_VOLTAGE = {0, 100};
 
-    // TODO: Reg SNK_AVS_CURRENT[7] Seems to be related. Check whether this value spans 8 or 9 bits
+    // TODO: Reg SNK_AVS_CURRENT[7] Seems to be related. Check whether this value spans 8 or 9 bits. If yes then merge with EPR_AVS_VOLT
     inline int to_snk_avs_voltage(const int mV) {
         return to_x(mV, 0xFF, SNK_AVS_VOLTAGE);
     }
 
     inline int from_snk_avs_voltage(const uint8_t voltage) {
         return from_x(voltage, SNK_AVS_VOLTAGE);
-    }
-
-    constexpr OffsetStep AVS_CURRENT = {0, 50};
-
-    inline int to_avs_current(const int mA) {
-        return to_x(mA, 0x7F, AVS_CURRENT);
-    }
-
-    inline int from_avs_current(const uint8_t current) {
-        return from_x(current, AVS_CURRENT);
     }
 
     constexpr OffsetStep EPR_AVS_VOLTAGE = {0, 100};
